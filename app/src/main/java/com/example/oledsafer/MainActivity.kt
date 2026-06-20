@@ -250,13 +250,13 @@ fun SettingsTab() {
 @Composable
 fun InfoRow(label: String, value: String) {
     Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-        Text(label, color = TextGray, fontSize = 14.dp)
-        Text(value, color = Color.White, fontWeight = FontWeight.Bold, fontSize = 14.dp)
+        Text(label, color = TextGray, fontSize = 14.sp)
+        Text(value, color = Color.White, fontWeight = FontWeight.Bold, fontSize = 14.sp)
     }
 }
 
 @Composable
-fun SocialButton(text: String, modifier = Modifier = Modifier, onClick: () -> Unit) {
+fun SocialButton(text: String, modifier: Modifier = Modifier, onClick: () -> Unit) {
     Surface(
         modifier = modifier.clickable { onClick() },
         color = AmoledBlack,
