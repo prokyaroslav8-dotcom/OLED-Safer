@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">OLED Safer</string>
-    <string name="accessibility_description">OLED Safer needs this permission to detect which app is open and automatically show black bars to prevent screen burn-in.</string>
-    <string name="global_toggle">Enable OLED Safer</string>
+    <string name="app_name">OLED Saver</string>
+    <string name="accessibility_description">OLED Saver needs this permission to detect which app is open and automatically show black bars to prevent screen burn-in.</string>
+    <string name="global_toggle">Enable OLED Saver</string>
     <string name="top_bar_height">Top Bar Height (dp)</string>
     <string name="bottom_bar_height">Bottom Bar Height (dp)</string>
     <string name="opacity">Opacity (%)</string>
