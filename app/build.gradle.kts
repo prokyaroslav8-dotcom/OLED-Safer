@@ -29,16 +29,25 @@ android {
     }
 
     composeOptions {
-        // Для Kotlin 1.9.23 версия компилятора Compose должна быть 1.5.11
         kotlinCompilerExtensionVersion = "1.5.11"
+    }
+
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            // Фикс ошибки подписи: используем дебаг-ключ для локальных тестов релиза
+            signingConfig = signingConfigs.getByName("debug")
+        }
     }
 }
 
 dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.activity:activity-compose:1.8.2")
-    
-    // Используем проверенную связку
     implementation(platform("androidx.compose:compose-bom:2024.05.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.material3:material3")
