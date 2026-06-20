@@ -1,19 +1,20 @@
 package com.example.oledsafer
 
 import android.accessibilityservice.AccessibilityService
+import android.content.Intent
 import android.view.accessibility.AccessibilityEvent
 
 class AppAccessibilityService : AccessibilityService() {
 
-    override fun onAccessibilityEvent(event: AccessibilityEvent?) {
-        if (event?.eventType == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
-            val packageName = event.packageName?.toString() ?: return
-            val prefs = PreferencesManager(this)
+    override fun onAccessibilityEvent(event: AccessibilityEvent) {
+        if (event.eventType == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
+            val currentPackage = event.packageName?.toString()
+            val intent = Intent(this, OverlayService::class.java)
             
-            if (prefs.isActive() && prefs.getTargetApps().contains(packageName)) {
-                OverlayService.start(this)
+            if (currentPackage == "com.zhiliaoapp.musically" || currentPackage == "com.ss.android.ugc.trill") {
+                startService(intent)
             } else {
-                OverlayService.stop(this)
+                stopService(intent)
             }
         }
     }
