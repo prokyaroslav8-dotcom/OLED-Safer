@@ -256,7 +256,7 @@ fun InfoRow(label: String, value: String) {
 }
 
 @Composable
-fun SocialButton(text: String, modifier = Modifier: Modifier = Modifier, onClick: () -> Unit) {
+fun SocialButton(text: String, modifier = Modifier = Modifier, onClick: () -> Unit) {
     Surface(
         modifier = modifier.clickable { onClick() },
         color = AmoledBlack,
