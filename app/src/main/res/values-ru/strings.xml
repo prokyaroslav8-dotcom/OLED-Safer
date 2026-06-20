@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">OLED Safer</string>
-    <string name="accessibility_description">OLED Safer требует это разрешение, чтобы определять открытое приложение и автоматически показывать черные полосы для предотвращения выгорания экрана.</string>
-    <string name="global_toggle">Включить OLED Safer</string>
+    <string name="app_name">OLED Saver</string>
+    <string name="accessibility_description">OLED Saver требует это разрешение, чтобы определять открытое приложение и автоматически показывать черные полосы для предотвращения выгорания экрана.</string>
+    <string name="global_toggle">Включить OLED Saver</string>
     <string name="top_bar_height">Ширина верхней полосы (dp)</string>
     <string name="bottom_bar_height">Ширина нижней полосы (dp)</string>
     <string name="opacity">Непрозрачность (%)</string>
