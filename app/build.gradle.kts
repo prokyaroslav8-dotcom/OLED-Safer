@@ -24,25 +24,22 @@ android {
         jvmTarget = "17"
     }
 
-    // ДОБАВЬ ЭТОТ БЛОК. Он связывает Kotlin и Compose напрямую
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.11" 
-    }
-    
     buildFeatures {
         compose = true
+    }
+
+    composeOptions {
+        // Для Kotlin 1.9.23 версия компилятора Compose должна быть 1.5.11
+        kotlinCompilerExtensionVersion = "1.5.11"
     }
 }
 
 dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.activity:activity-compose:1.8.2")
-    implementation(platform("androidx.compose:compose-bom:2024.05.00"))
     
+    // Используем проверенную связку
+    implementation(platform("androidx.compose:compose-bom:2024.05.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.material3:material3")
-}
-
-kotlin {
-    jvmToolchain(17)
 }
