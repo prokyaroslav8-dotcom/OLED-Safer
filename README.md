@@ -1,7 +1,7 @@
 # 📱 OLED Safer
 
 <p align="center">
-  <b>Русский</b> | <a href="https://github.com/prokyaroslav8-dotcom/oled-safer/blob/main/readme-en.md">English</a>
+  <b>Русский</b> | <a href="https://github.com/prokyaroslav8-dotcom/oled-safer/main/readme-en.md">English</a>
 </p>
 
 > **Бескомпромиссная защита от выгорания экрана в лучших традициях AOSP.**
