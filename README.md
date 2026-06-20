@@ -1,60 +1,54 @@
-# 📱 OLED Safer (English)
-> **Ultimate screen burn-in protection with a native AOSP feel.**
+# 📱 OLED Safer
 
-![Build Status](https://img.shields.io/github/actions/workflow/status/YourName/OLEDSafer/build.yml?style=for-the-badge)
+<p align="center">
+  <b>Русский</b> | <a href="https://github.com/prokyaroslav8-dotcom/oled-safer/blob/main/readme-en.md">English</a>
+</p>
+
+> **Бескомпромиссная защита от выгорания экрана в лучших традициях AOSP.**
+
+![Build Status](https://img.shields.io/github/actions/workflow/status/prokyaroslav8-dotcom/oled-safer/build.yml?style=for-the-badge)
 ![Android Version](https://img.shields.io/badge/Android-6.0%2B-3DDC84?style=for-the-badge&logo=android)
-![Material You](https://img.shields.io/badge/Monet-Supported-F4A261?style=for-the-badge)
+![Material You](https://img.shields.io/badge/Monet-Поддерживается-F4A261?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)
 
-**OLED Safer** is an open-source utility designed to prevent permanent screen burn-in on Android devices. It dynamically overlays customizable black bars on the top and bottom of your screen. Built with a minimalist, terminal-clean aesthetic and full Material You (Monet) support, it looks and feels like it belongs directly in custom ROMs like LineageOS or Evolution X.
+**OLED Safer** — это продвинутая open-source утилита, созданная для предотвращения выгорания (burn-in) пикселей на дисплеях Android-устройств. Приложение динамически накладывает настраиваемые черные полосы сверху и снизу экрана. Благодаря чистому коду, минималистичному интерфейсу и полной поддержке библиотек цветов **Monet** (Material You), утилита выглядит так, будто изначально является частью кастомной прошивки.
+
+Гораздо круче, чем обычный AMOLED Protect.
 
 ---
 
-## ✨ Key Features
+## ✨ Реализованный функционал
 
-- **🎯 Smart Auto-Activation**: Automatically turns on the protection bars only when specific, user-selected apps are running in the foreground.
-- **🎨 AOSP & Monet Design**: A beautiful, minimalist interface that dynamically adapts to your system colors.
-- **⚙️ Deep Customization**:
-  - Adjust top and bottom bar height independently (in `dp`).
-  - Set custom opacity levels.
-- **👆 Smart Touch Handling**: Tap the bars to temporarily hide them for 3, 5, or 10 seconds.
-- **⚡ Quick Settings (QS) Tile**: Toggle global protection right from your notification panel.
-- **🔋 Battery Friendly**: Pure black pixels mean OLED pixels are turned off, saving battery.
+Разработка велась строго по техническому заданию. В нумерации используется следующая логика: `.1` — обязательный функционал (НУЖНО), `.2*` — желательный функционал (ЖЕЛАТЕЛЬНО).
+
+- **[#1.1] Умная автоактивация** Программа сама включает черные полосочки, когда на экране находится открытым определенное приложение (с точностью расположения, как на референсных фото).
+  
+- **[#2.2*] Настраиваемая геометрия** Пользователь может менять толщину полосочек прямо в приложении — высота верхней и нижней полосы настраивается независимо друг от друга.
+
+- **[#3.2*] Контроль прозрачности** Пользователь может гибко менять прозрачность полосочек с помощью удобного ползунка.
+
+- **[#4.1] Умное скрытие по клику** При нажатии на полосочку она может не скрываться вообще, либо скрываться на 3, 5 или 10 секунд (пользователь выбирает в приложении, по умолчанию установлено 5 секунд).
+
+- **[#5.1] Интеграция в систему** Пользователь может включить или выключить полосочки прямо из центра управления (шторки быстрых настроек QS) смартфоном или планшетом на Android.
 
 ---
 
-## 🛠️ How It Works
+## 🛠️ Под капотом
 
-| Feature | Mechanism |
+| Технология | Описание работы |
 | :--- | :--- |
-| **Overlays** | Uses `SYSTEM_ALERT_WINDOW` to draw pure black shapes over UI elements. |
-| **App Detection** | Leverages `AccessibilityService` to efficiently detect foreground package changes without polling. |
-| **Persistence** | Lightweight background service ensures the bars stay active when needed. |
+| **Оверлей (Draw Over Apps)** | Использование `SYSTEM_ALERT_WINDOW` для отрисовки абсолютно черных блоков поверх системного интерфейса и игр. Черный цвет физически отключает пиксели на OLED, экономя заряд. |
+| **Accessibility Service** | Энергоэффективный мониторинг активного окна позволяет приложению мгновенно реагировать на запуск выбранных программ (например, игр) без "жора" батареи в фоне. |
+| **GitHub Actions CI/CD** | Настроенный `build.yml` автоматически компилирует релизные версии APK при каждом пуше в ветку `main`. |
 
 ---
 
-## 🚀 Installation
+## 🚀 Установка
 
-We use **GitHub Actions** to automatically build and provide the latest APKs.
+Проект настроен на автоматическую сборку. Вам не нужно ничего компилировать вручную, чтобы просто потестировать приложение!
 
-1. Go to the [Releases](../../releases) tab.
-2. Download the latest `app-release.apk`.
-3. Install the APK on your Android device. *(You may need to allow installation from unknown sources).*
+1. Перейдите во вкладку [Releases](../../releases).
+2. Скачайте свежий файл `app-release-unsigned.apk`.
+3. Установите APK на ваше устройство. *(Минимальная версия: Android 6.0, поддерживаются версии вплоть до Android 14+).*
 
-> **Note:** On first launch, the app will prompt you to grant **Display over other apps** and **Accessibility** permissions. These are strictly required for the app to function.
-
----
-
-## 💻 Build it yourself
-
-Want to compile the code on your own machine? It's easy!
-
-```bash
-# Clone the repository
-git clone [https://github.com/YourName/OLEDSafer.git](https://github.com/YourName/OLEDSafer.git)
-
-# Navigate into the directory
-cd OLEDSafer
-
-# Build the release APK using Gradle
-./gradlew assembleRelease
+> **⚠️ Важно:** При первом запуске приложение попросит выдать разрешения на **Наложение поверх других окон** и доступ к **Специальным возможностям** (Accessibility). Без них система Android просто не позволит нам отслеживать запуск нужных приложений и рисовать полосы.
